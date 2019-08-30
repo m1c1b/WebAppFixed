@@ -4,4 +4,4 @@ This is my university project. Windows Form is needed to enter values and genera
 By the click data is saved to a text file. 
 WebApp is the app that display web page with animated graph created by [Chart.js](https://www.chartjs.org/).
 
-If you want to run Web Application, you need to configure [**this file**](https://github.com/m1c1b/WebApp) for IIS.
+If you want to run Web Application, you need to configure [**this file**](https://github.com/m1c1b/WebAppFixed/tree/master/.vs/WebAppFixed/config) for IIS.
