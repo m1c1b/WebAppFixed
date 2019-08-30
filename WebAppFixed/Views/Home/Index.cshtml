@@ -1,0 +1,73 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Values</title>
+    <link rel="stylesheet" href="/Content/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="/Scripts/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+</head>
+<body>
+<div style="width: 1200px; height: 600px" >
+    <canvas id="myChart">
+        <script src="/Scripts/MyChart.js"></script>
+    </canvas>
+</div>
+<!-- <script src="../../Scripts/Chart.js"></script> -->
+<div class="datepicker-container">
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='startDate'>
+                <input type='text' class="form-control" id='startDateInput'/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='endDate'>
+                <input type='text' class="form-control" id='endDateInput'/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button"
+        class="btn btn-primary"
+        onclick="getData()">
+    Get data
+</button>
+<button type="button"
+        class="btn btn-primary"
+        onclick="getFile()">
+    Download
+</button>
+<script type="text/javascript">
+      $(function () {
+          $('#startDate').datetimepicker({locale: 'ru'});
+          $('#endDate').datetimepicker({
+              useCurrent: false, //Important! See issue #1075
+              locale: 'ru',
+          });
+          $("#startDate").on("dp.change", function (e) {
+              $('#endDate').data("DateTimePicker").minDate(e.date);
+          });
+          $("#endDate").on("dp.change", function (e) {
+              $('#startDate').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+</body>
+</html>
